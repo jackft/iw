@@ -1,0 +1,465 @@
+===============================================================================
+  Experiment 1 breach probabilities
+  ===============================================================================
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: breach ~ gaze * talk + distance + pedestrian_gender * actor_gender +  
+    group_lead_pedestrian + transportation + (1 | location:date)
+   Data: df_experiment_1
+Control: glmerControl(optimizer = "bobyqa")
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1529.3    1612.2    -749.7    1499.3      1846 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.5143 -0.5316 -0.1788 -0.1008  8.9290 
+
+Random effects:
+ Groups        Name        Variance Std.Dev.
+ location:date (Intercept) 0.9417   0.9704  
+Number of obs: 1861, groups:  location:date, 42
+
+Fixed effects:
+                                      Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                           -2.93778    0.36974  -7.946 1.93e-15 ***
+gazeTRUE                              -1.09147    0.19532  -5.588 2.30e-08 ***
+talkTRUE                              -0.68418    0.18209  -3.757 0.000172 ***
+distance10 ft                          2.83290    0.23202  12.210  < 2e-16 ***
+pedestrian_genderWoman                -0.14648    0.24391  -0.601 0.548150    
+actor_genderMW                        -0.16654    0.28622  -0.582 0.560646    
+actor_genderWW                         0.82517    0.30805   2.679 0.007390 ** 
+group_lead_pedestrianTRUE             -0.14913    0.18025  -0.827 0.408023    
+transportationBike                     0.43994    0.24906   1.766 0.077331 .  
+transportationOther                    1.50136    0.64890   2.314 0.020685 *  
+transportationSkateboard               0.52975    0.28718   1.845 0.065090 .  
+gazeTRUE:talkTRUE                      0.84904    0.27429   3.095 0.001965 ** 
+pedestrian_genderWoman:actor_genderMW -0.01908    0.34289  -0.056 0.955632    
+pedestrian_genderWoman:actor_genderWW -0.14800    0.33044  -0.448 0.654227    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  ===============================================================================
+  Experiment 1 marginal breach probabilities
+  ===============================================================================
+ distance gaze  talk    prob      SE  df asymp.LCL asymp.UCL
+ 5 ft     FALSE FALSE 0.0525 0.01360 Inf    0.0313    0.0866
+ 10 ft    FALSE FALSE 0.4848 0.05760 Inf    0.3746    0.5964
+ 5 ft      TRUE FALSE 0.0182 0.00533 Inf    0.0103    0.0322
+ 10 ft     TRUE FALSE 0.2400 0.04420 Inf    0.1642    0.3367
+ 5 ft     FALSE  TRUE 0.0272 0.00755 Inf    0.0157    0.0466
+ 10 ft    FALSE  TRUE 0.3219 0.05170 Inf    0.2297    0.4303
+ 5 ft      TRUE  TRUE 0.0214 0.00612 Inf    0.0122    0.0374
+ 10 ft     TRUE  TRUE 0.2714 0.04700 Inf    0.1894    0.3725
+
+Results are averaged over the levels of: pedestrian_gender, actor_gender, group_lead_pedestrian 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+
+  ===============================================================================
+  Experiment 1 distance contrast
+  ===============================================================================
+ contrast     odds.ratio     SE  df null z.ratio p.value
+ 5 ft / 10 ft     0.0588 0.0137 Inf    1 -12.210  <.0001
+
+Results are averaged over the levels of: gaze, talk, pedestrian_gender, actor_gender, group_lead_pedestrian, transportation 
+Tests are performed on the log odds ratio scale 
+
+  ===============================================================================
+  Experiment 1 actor gender contrast
+  ===============================================================================
+ contrast  estimate SE df z.ratio p.value
+ (nothing)   nonEst NA NA      NA      NA
+
+Results are averaged over the levels of: gaze, talk, distance, pedestrian_gender, group_lead_pedestrian, transportation 
+Note: contrasts are still on the log.o.r. scale. Consider using
+      regrid() if you want contrasts of back-transformed estimates. 
+
+  ===============================================================================
+  Experiment 1 gaze:talk interaction contrast
+  ===============================================================================
+ contrast                                                  odds.ratio     SE
+ Gaze AND Talk vs. Just Talk / Gaze AND Talk vs. Just Gaze      0.665 0.1330
+ Gaze AND Talk vs. Nothing / Gaze AND Talk vs. Just Gaze        0.336 0.0656
+ Gaze AND Talk vs. Nothing / Gaze AND Talk vs. Just Talk        0.505 0.0919
+  df null z.ratio p.value
+ Inf    1  -2.035  0.1039
+ Inf    1  -5.588  <.0001
+ Inf    1  -3.757  0.0005
+
+Results are averaged over the levels of: distance, pedestrian_gender, actor_gender, group_lead_pedestrian, transportation 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+Tests are performed on the log odds ratio scale 
+
+  ===============================================================================
+  Experiment 1 gaze:talk interaction odds
+  ===============================================================================
+ contrast  estimate SE df z.ratio p.value
+ (nothing)   nonEst NA NA      NA      NA
+
+Results are averaged over the levels of: distance, pedestrian_gender, actor_gender, group_lead_pedestrian, transportation 
+Note: contrasts are still on the log.o.r. scale. Consider using
+      regrid() if you want contrasts of back-transformed estimates. 
+
+  ===============================================================================
+  Experiment 2 breach probabilities
+  ===============================================================================
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+breach ~ body_orientation * pedestrian_direction + pedestrian_gender +  
+    pedestrian_headphones + pedestrian_on_phone + transportation +  
+    motor_powered + pedestrian_group_size + outerside_of_pedestrian_group +  
+    lead_pedestrian + entry_location + exit_location + breach_before +  
+    crowd_size + (1 | video:mid_min10)
+   Data: df_experiment_2_passes_wall_area
+Control: glmerControl(optimizer = "bobyqa")
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    494.5     594.2    -224.3     448.5       540 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-8.0911 -0.4038  0.1796  0.3651  6.6731 
+
+Random effects:
+ Groups          Name        Variance Std.Dev.
+ video:mid_min10 (Intercept) 0.4192   0.6475  
+Number of obs: 563, groups:  video:mid_min10, 33
+
+Fixed effects:
+                                                       Estimate Std. Error
+(Intercept)                                             2.06297    0.87538
+body_orientationBackToBack                             -1.30541    0.78963
+body_orientationFaceToFace                             -4.10653    0.67501
+body_orientationOffsetFacing                           -1.33658    0.64912
+pedestrian_directionRight                              -0.56564    0.54771
+pedestrian_genderWoman                                  0.19599    0.25661
+pedestrian_headphones                                  -0.15912    0.38606
+pedestrian_on_phone                                     0.67781    0.34417
+transportationBike                                     -0.13448    1.03383
+transportationScooter                                   3.51560    1.99532
+transportationSkateboard                                0.72359    1.13508
+motor_powered                                          -2.46010    1.87438
+pedestrian_group_size                                   0.19165    0.28405
+outerside_of_pedestrian_group                          -0.62716    0.42885
+lead_pedestrian                                         0.65940    0.46819
+entry_locationbottom                                   -2.47407    0.68610
+exit_locationbottom                                    -3.79530    0.55309
+breach_before                                           1.05591    0.21198
+crowd_size                                             -0.38495    0.16270
+body_orientationBackToBack:pedestrian_directionRight    1.38670    1.21435
+body_orientationFaceToFace:pedestrian_directionRight   -0.08279    0.69908
+body_orientationOffsetFacing:pedestrian_directionRight -2.02741    0.82328
+                                                       z value Pr(>|z|)    
+(Intercept)                                              2.357 0.018440 *  
+body_orientationBackToBack                              -1.653 0.098293 .  
+body_orientationFaceToFace                              -6.084 1.17e-09 ***
+body_orientationOffsetFacing                            -2.059 0.039488 *  
+pedestrian_directionRight                               -1.033 0.301727    
+pedestrian_genderWoman                                   0.764 0.445010    
+pedestrian_headphones                                   -0.412 0.680213    
+pedestrian_on_phone                                      1.969 0.048907 *  
+transportationBike                                      -0.130 0.896501    
+transportationScooter                                    1.762 0.078082 .  
+transportationSkateboard                                 0.637 0.523813    
+motor_powered                                           -1.312 0.189355    
+pedestrian_group_size                                    0.675 0.499854    
+outerside_of_pedestrian_group                           -1.462 0.143630    
+lead_pedestrian                                          1.408 0.159012    
+entry_locationbottom                                    -3.606 0.000311 ***
+exit_locationbottom                                     -6.862 6.79e-12 ***
+breach_before                                            4.981 6.32e-07 ***
+crowd_size                                              -2.366 0.017980 *  
+body_orientationBackToBack:pedestrian_directionRight     1.142 0.253487    
+body_orientationFaceToFace:pedestrian_directionRight    -0.118 0.905734    
+body_orientationOffsetFacing:pedestrian_directionRight  -2.463 0.013794 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  ===============================================================================
+  Experiment 2 marginal breach probabilities
+  ===============================================================================
+ pedestrian_direction body_orientation  prob     SE  df asymp.LCL asymp.UCL
+ Left                 Baseline         0.937 0.0349 Inf    0.8235     0.980
+ Right                Baseline         0.895 0.0498 Inf    0.7509     0.960
+ Left                 BackToBack       0.802 0.1160 Inf    0.4913     0.944
+ Right                BackToBack       0.902 0.0889 Inf    0.5616     0.985
+ Left                 FaceToFace       0.197 0.0909 Inf    0.0740     0.431
+ Right                FaceToFace       0.114 0.0626 Inf    0.0367     0.303
+ Left                 OffsetFacing     0.797 0.0951 Inf    0.5537     0.925
+ Right                OffsetFacing     0.227 0.0978 Inf    0.0895     0.467
+
+Results are averaged over the levels of: pedestrian_gender, pedestrian_headphones, pedestrian_on_phone, outerside_of_pedestrian_group, lead_pedestrian 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+
+  ===============================================================================
+  Experiment 2 body orientation contrasts
+  ===============================================================================
+ contrast                      odds.ratio      SE  df null z.ratio p.value
+ FaceToFace vs. 45OffsetFacing     0.1657 0.08220 Inf    1  -3.625  0.0003
+ FaceToFace vs. BackToBack         0.0291 0.02120 Inf    1  -4.852  <.0001
+ FaceToFace vs Baseline            0.0158 0.00907 Inf    1  -7.223  <.0001
+
+Results are averaged over the levels of: pedestrian_direction, pedestrian_gender, pedestrian_headphones, pedestrian_on_phone, transportation, motor_powered, outerside_of_pedestrian_group, lead_pedestrian, entry_location, exit_location 
+Tests are performed on the log odds ratio scale 
+
+  ===============================================================================
+  Experiment 2 breach before (collective-rule breacking) contrasts
+  ===============================================================================
+ contrast  estimate SE df z.ratio p.value
+ (nothing)   nonEst NA NA      NA      NA
+
+Results are averaged over the levels of: body_orientation, pedestrian_direction, pedestrian_gender, pedestrian_headphones, pedestrian_on_phone, transportation, motor_powered, outerside_of_pedestrian_group, lead_pedestrian, entry_location, exit_location 
+Note: contrasts are still on the logit scale. Consider using
+      regrid() if you want contrasts of back-transformed estimates. 
+
+  ===============================================================================
+  Experiment 3 breach probabilities
+  ===============================================================================
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: breach ~ type_of_interaction * gaze + distance + pedestrian_gender *  
+    actor_gender + group_lead_pedestrian + transportation + (1 |  
+    location:date)
+   Data: df_experiment_3
+Control: glmerControl(optimizer = "bobyqa")
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    948.8    1010.9    -461.4     922.8       861 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8626 -0.6302 -0.1791  0.7456  5.7960 
+
+Random effects:
+ Groups        Name        Variance Std.Dev.
+ location:date (Intercept) 0.2625   0.5123  
+Number of obs: 874, groups:  location:date, 20
+
+Fixed effects:
+                                     Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                          -0.46292    0.43294  -1.069 0.284967    
+type_of_interactionSign              -1.75887    0.47947  -3.668 0.000244 ***
+gazeTRUE                             -0.14173    0.26123  -0.543 0.587458    
+distance10 ft                         3.44727    0.31486  10.949  < 2e-16 ***
+pedestrian_genderWoman                0.02144    0.23664   0.091 0.927813    
+actor_genderW                        -0.01566    0.23623  -0.066 0.947151    
+group_lead_pedestrianTRUE             0.21018    0.22123   0.950 0.342085    
+transportationBike                    0.29149    0.32735   0.890 0.373216    
+transportationOther                  -0.08245    0.50721  -0.163 0.870870    
+transportationSkateboard             -0.53270    0.47944  -1.111 0.266531    
+type_of_interactionSign:gazeTRUE     -1.37031    0.34437  -3.979 6.91e-05 ***
+pedestrian_genderWoman:actor_genderW  0.05490    0.33693   0.163 0.870558    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) typ__S gzTRUE dst10f pdst_W actr_W g__TRU trnspB trnspO
+typ_f_ntrcS -0.645                                                        
+gazeTRUE    -0.361  0.314                                                 
+distanc10ft  0.012 -0.487 -0.001                                          
+pdstrn_gndW -0.248  0.025  0.039 -0.010                                   
+actor_gndrW -0.286 -0.017  0.005  0.019  0.382                            
+grp_ld_TRUE -0.444  0.064  0.010 -0.029  0.000  0.025                     
+trnsprttnBk -0.016 -0.027 -0.009 -0.034  0.159  0.026 -0.134              
+trnsprttnOt -0.023  0.022  0.027 -0.028  0.033  0.024 -0.074  0.066       
+trnsprttnSk -0.006 -0.018 -0.030 -0.057  0.119  0.018 -0.098  0.103  0.043
+typ__S:TRUE  0.274 -0.298 -0.758 -0.184 -0.021  0.015 -0.026  0.012 -0.050
+pdstrn_W:_W  0.125  0.027  0.013  0.007 -0.686 -0.549 -0.014 -0.050 -0.037
+            trnspS t__S:T
+typ_f_ntrcS              
+gazeTRUE                 
+distanc10ft              
+pdstrn_gndW              
+actor_gndrW              
+grp_ld_TRUE              
+trnsprttnBk              
+trnsprttnOt              
+trnsprttnSk              
+typ__S:TRUE  0.071       
+pdstrn_W:_W -0.020 -0.010
+
+  ===============================================================================
+  Experiment 3 marginal breach probabilities
+  ===============================================================================
+ gaze  type_of_interaction   prob      SE  df asymp.LCL asymp.UCL
+ FALSE Mural               0.4155 0.08860 Inf    0.2580    0.5924
+  TRUE Mural               0.3816 0.08300 Inf    0.2365    0.5514
+ FALSE Sign                0.1091 0.03150 Inf    0.0609    0.1878
+  TRUE Sign                0.0263 0.00947 Inf    0.0129    0.0528
+
+Results are averaged over the levels of: pedestrian_gender, actor_gender, group_lead_pedestrian 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+
+  ===============================================================================
+  Experiment 3 breach probabilities
+  ===============================================================================
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: 
+breach ~ type_of_interaction * gaze + talk + distance + pedestrian_gender *  
+    actor_gender + group_lead_pedestrian + transportation + (1 |  
+    location:date)
+   Data: df_experiment_1_and_3
+Control: glmerControl(optimizer = "bobyqa")
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   2492.2    2586.8   -1230.1    2460.2      2719 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.0361 -0.5771 -0.1794  0.5269  8.2958 
+
+Random effects:
+ Groups        Name        Variance Std.Dev.
+ location:date (Intercept) 0.7038   0.8389  
+Number of obs: 2735, groups:  location:date, 62
+
+Fixed effects:
+                                     Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                          -3.25354    0.26803 -12.139  < 2e-16 ***
+type_of_interactionMural              2.76890    0.57168   4.843 1.28e-06 ***
+type_of_interactionSign               1.27274    0.33500   3.799 0.000145 ***
+gazeTRUE                             -0.66910    0.13476  -4.965 6.86e-07 ***
+talkTRUE                             -0.30566    0.13360  -2.288 0.022149 *  
+distance10 ft                         3.00315    0.18293  16.417  < 2e-16 ***
+pedestrian_genderWoman               -0.11508    0.13765  -0.836 0.403135    
+actor_genderW                         0.41416    0.16555   2.502 0.012360 *  
+group_lead_pedestrianTRUE             0.02436    0.13971   0.174 0.861567    
+transportationBike                    0.39108    0.19624   1.993 0.046279 *  
+transportationOther                   0.62233    0.41255   1.508 0.131433    
+transportationSkateboard              0.26960    0.24779   1.088 0.276604    
+type_of_interactionMural:gazeTRUE     0.48353    0.29643   1.631 0.102852    
+type_of_interactionSign:gazeTRUE     -0.76065    0.25141  -3.026 0.002482 ** 
+pedestrian_genderWoman:actor_genderW  0.02195    0.21352   0.103 0.918107    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  ===============================================================================
+  Experiment 3 marginal breach probabilities
+  ===============================================================================
+ gaze  type_of_interaction   prob      SE  df asymp.LCL asymp.UCL
+ FALSE Human               0.0437 0.00971 Inf    0.0281    0.0672
+  TRUE Human               0.0229 0.00541 Inf    0.0143    0.0363
+ FALSE Mural               0.4213 0.12800 Inf    0.2060    0.6713
+  TRUE Mural               0.3768 0.12100 Inf    0.1799    0.6250
+ FALSE Sign                0.1402 0.03730 Inf    0.0816    0.2303
+  TRUE Sign                0.0376 0.01180 Inf    0.0201    0.0690
+
+Results are averaged over the levels of: pedestrian_gender, actor_gender, group_lead_pedestrian 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+
+  ===============================================================================
+  Experiment 1 & 3 marginal breach probabilities by gender
+  ===============================================================================
+ pedestrian_gender actor_gender  prob     SE  df asymp.LCL asymp.UCL
+ Man               M            0.353 0.0571 Inf     0.251     0.471
+ Woman             M            0.327 0.0586 Inf     0.224     0.450
+ Man               W            0.452 0.0641 Inf     0.332     0.578
+ Woman             W            0.429 0.0665 Inf     0.307     0.562
+
+Results are averaged over the levels of: type_of_interaction, gaze, talk, distance, group_lead_pedestrian, transportation 
+Confidence level used: 0.95 
+Intervals are back-transformed from the logit scale 
+
+  ===============================================================================
+  Experiment 1 & 3 contrast type of interaction experiment 1 and 3
+  ===============================================================================
+ contrast        odds.ratio    SE  df null z.ratio p.value
+ Sign vs. Human        2.44  0.76 Inf    1   2.865  0.0042
+ Mural vs. Human      20.30 11.20 Inf    1   5.478  <.0001
+
+Results are averaged over the levels of: gaze, talk, distance, pedestrian_gender, actor_gender, group_lead_pedestrian, transportation 
+Tests are performed on the log odds ratio scale 
+
+  ===============================================================================
+  Experiment 1 & 3 compare gaze in human & sign condition
+  ===============================================================================
+ contrast                           odds.ratio    SE  df null z.ratio p.value
+ Sign & Gaze vs. Human & Gaze             1.67 0.562 Inf    1   1.521  0.1284
+ Sign & no Gaze vs. Human & no Gaze       3.57 1.200 Inf    1   3.799  0.0001
+
+Results are averaged over the levels of: pedestrian_gender, actor_gender, group_lead_pedestrian 
+Tests are performed on the log odds ratio scale 
+
+  ===============================================================================
+  Experiment 1 & 3 contrast type of interaction and gaze
+  ===============================================================================
+ gaze_pairwise type_of_interaction_pairwise odds.ratio    SE  df null z.ratio
+ FALSE / TRUE  Human / Mural                     1.622 0.481 Inf    1   1.631
+ FALSE / TRUE  Human / Sign                      0.467 0.118 Inf    1  -3.026
+ FALSE / TRUE  Mural / Sign                      0.288 0.098 Inf    1  -3.660
+ p.value
+  0.1029
+  0.0025
+  0.0003
+
+Results are averaged over the levels of: pedestrian_gender, actor_gender, group_lead_pedestrian 
+Tests are performed on the log odds ratio scale 
+
+  ===============================================================================
+  Experiment 4 breach probabilities
+  ===============================================================================
+
+Call:
+lm(formula = rts_distance_to_wall_middle ~ pedestrian_gender, 
+    data = df_experiment_4_orients_away)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-751.71 -271.17   77.41  253.33  648.38 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              769.69      86.16   8.933 7.12e-11 ***
+pedestrian_genderWoman    33.75     121.85   0.277    0.783    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 385.3 on 38 degrees of freedom
+Multiple R-squared:  0.002014,	Adjusted R-squared:  -0.02425 
+F-statistic: 0.0767 on 1 and 38 DF,  p-value: 0.7833
+
+
+  ===============================================================================
+  Experiment 4 breach effect
+  ===============================================================================
+# A tibble: 1 × 8
+  Hypothesis     Estimate Est.Error CI.Lower CI.Upper Evid.Ratio Post.Prob Star 
+  <chr>             <dbl>     <dbl>    <dbl>    <dbl>      <dbl>     <dbl> <chr>
+1 (conditionHum…    -7.05      1.57    -9.86    -4.73        Inf         1 *    
+
+  ===============================================================================
+  Experiment 4 contrast breach probabilities
+  ===============================================================================
+ contrast         odds.ratio lower.HPD upper.HPD
+ Human vs. Chairs       1002      16.2     19114
+
+Results are averaged over the levels of: pedestrian_gender 
+Point estimate displayed: median 
+Results are back-transformed from the log odds ratio scale 
+HPD interval probability: 0.95 
+
+  ===============================================================================
+  Experiment 4 orients away gender effects
+  ===============================================================================
+Linear mixed model fit by REML ['lmerModLmerTest']
+Formula: rts_distance_to_wall_middle ~ pedestrian_gender + (1 | date)
+   Data: df_experiment_4_orients_away
+REML criterion at convergence: 566.0681
+Random effects:
+ Groups   Name        Std.Dev.
+ date     (Intercept) 104.0   
+ Residual             372.7   
+Number of obs: 40, groups:  date, 10
+Fixed Effects:
+           (Intercept)  pedestrian_genderWoman  
+                763.70                   55.96  

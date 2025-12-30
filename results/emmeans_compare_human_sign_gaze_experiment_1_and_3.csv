@@ -1,0 +1,3 @@
+term,contrast,null.value,odds.ratio,std.error,df,null,statistic,p.value
+gaze*type_of_interaction,Sign & Gaze vs. Human & Gaze,0,1.66877487908381,0.56199583384134,Inf,1,1.52058514013366,0.128363978181941
+gaze*type_of_interaction,Sign & no Gaze vs. Human & no Gaze,0,3.57063558200229,1.19614829406783,Inf,1,3.79928112415476,0.000145116408840124
