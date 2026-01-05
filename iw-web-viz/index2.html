@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <script src="dist/ccl-traj-viz.iife.js"></script>
+
+    <link href="https://unpkg.com/tabulator-tables@5.4.4/dist/css/tabulator.min.css" rel="stylesheet">
+    <link href="src/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iw-web-viz</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+
+
+const tableOptions =  [
+  {title: "person_id",field: "person_id", headerFilter: "input" },
+  {title: "condition", field: "body_orientation", headerFilter: "list", headerFilterFunc: "=", headerFilterParams: {
+          values: {Baseline: "Baseline", FaceToFace: "FaceToFace", BackToBack: "BackToBack", FacingOffset: "FacingOffset"}
+      }
+  },
+  {title: "gender", field: "pedestrian_gender", headerFilter: "list", headerFilterFunc: "=", headerFilterParams: {
+          values: { Male: "Male", Female: "Female" }
+      }
+  },
+  {title: "transportation", field: "transportation", headerFilter: "list", headerFilterFunc: "=", headerFilterParams: {
+          values: {Walking: "Walking", Scooter: "Scooter", Bike: "Bike", Skateboard: "Skateboard"}
+      }
+  },
+  {title: "direction", field: "pedestrian_direction", headerFilter: "list", headerFilterFunc: "=", headerFilterParams: {
+          values: {Left: "Left", Right: "Right"}
+      }
+  },
+  {title: "pedestrian_on_phone", field: "pedestrian_on_phone"},
+  {title: "breach", field: "breach"}
+];
+
+    const domPromise = new Promise((resolve) => {
+        if (document.readyState === "loading") {
+          // DOM is still loading
+          document.addEventListener("DOMContentLoaded", () => resolve(), { once: true });
+        } else {
+          // DOM is already ready
+          resolve();
+      }
+    });
+
+    const metaDataPromise = fetch('data/experiment_2_2023-12-07.json.gz')
+      .then(response => response.blob())
+      .then(compressedBlob => {
+        const ds = new DecompressionStream("gzip");
+        const decompressedStream = compressedBlob.stream().pipeThrough(ds);
+        return new Response(decompressedStream).text();
+      })
+      .then(text => JSON.parse(text))
+      .catch(err => {
+        console.error('Failed to load compressed JSON:', err);
+      });
+
+    const trajectoryDataPromise = fetch('data/experiment_2_trajectory_2023-12-07.json.gz')
+      .then(response => response.blob())
+      .then(compressedBlob => {
+        const ds = new DecompressionStream("gzip");
+        const decompressedStream = compressedBlob.stream().pipeThrough(ds);
+        return new Response(decompressedStream).text();
+      })
+      .then(text => JSON.parse(text))
+      .catch(err => {
+        console.error('Failed to load compressed JSON:', err);
+      });
+
+    const backgroundDataPromise = fetch('data/mural.json')
+      .then(response => response.json())
+      .catch(err => {
+        console.error('Failed to load JSON:', err);
+      });
+
+      Promise.all([domPromise, metaDataPromise, trajectoryDataPromise, backgroundDataPromise]).then(([_, metadata, trajectorydata, backgroundData]) => {
+        console.log(trajectorydata)
+    const config = {xlim: [-1500, 1000], ylim: [-500, 1000], width: 1920, height: 1080, background: backgroundData, windowGroups: [{key: "Baseline", name: "Baseline"}, {key: "FaceToFace", name: "Face to face"}, {key: "BackToBack", name: "Back to back"}, {key: "OffsetFacing", name: "45° offset facing"}]};
+    const controller = new Controller.Controller(document.querySelector('#app'), trajectorydata, metadata, tableOptions, config);
+
+
+window.addEventListener("keydown", (e) => {
+    console.log(e.key);
+    switch (e.key) {
+        case "Tab":
+            e.preventDefault(); // prevent browser focus switch
+            controller.renderer.toggleViewMode();
+            break;
+        case " ": // space
+            controller.togglePlay();
+            break;
+        case "ArrowRight":
+            controller.stepForward();
+            break;
+        case "ArrowLeft":
+            controller.stepBackward();
+            break;
+        case "ArrowUp":
+            controller.increaseSpeed();
+            break;
+        case "ArrowDown":
+            controller.decreaseSpeed();
+            break;
+        default:
+            break;
+    }
+  }
+);
+
+controller.createColorDropdowns(["condition", "direction", "gender", "breach", "transportation"])
+controller.addEventListener("colorBy", (group) => {
+    switch(group) {
+        case "none":
+            controller.renderer.resetColors();
+            controller.updateLegend(null);
+            break;
+        case "gender":
+            const genderMapping = {Male: "#4dbbd5", Female: "#f48f3d"};
+            controller.renderer.colorByGroup("pedestrian_gender", genderMapping);
+            controller.updateLegend(genderMapping, "Gender")
+            break;
+        case "condition":
+            const conditionMapping = {
+                FaceToFace: "#00a087", BackToBack: "#f48f3d",
+                OffsetFacing: "#4dbbd5", Baseline: "#000000"
+            }
+            controller.renderer.colorByGroup("body_orientation", conditionMapping);
+            controller.updateLegend(conditionMapping, "Body Orientation Condition");
+            break;
+        case "breach":
+            const breachMapping = {
+                0: "#4dbbd5", 1: "#e44c37"
+            };
+            controller.renderer.colorByGroup("breach", breachMapping);
+            controller.updateLegend(breachMapping, "Breaching Outcome");
+            break;
+        case "direction":
+            const directionMapping = {
+                Left: "#000000", Right: "#0fa18a"
+            }
+            controller.renderer.colorByGroup("pedestrian_direction", directionMapping);
+            controller.updateLegend(directionMapping, "Pedestrian Direction");
+            break;
+        case "transportation":
+            const transportationMapping ={
+                Skateboard: "#00a087", Scooter: "#f48f3d",
+                Bike: "#4dbbd5", Walking: "#000000"
+            }
+            controller.renderer.colorByGroup("transportation", transportationMapping);
+            controller.updateLegend(transportationMapping, "Transportation");
+            break;
+        default:
+            controller.renderer.resetColors();
+            break;
+    }
+});
+
+const faceToFaceConfig = {
+    actor1: {x: -280, y: 0, angle: 90, visible: true},
+    actor2: {x: -280, y: 326, angle: 270, visible: true}
+}
+const backToBackConfig = {
+    actor1: {x: -280, y: 0, angle: 270, visible: true},
+    actor2: {x: -280, y: 326, angle: 90, visible: true}
+}
+const offsetFacing = {
+    actor1: {x: -280, y: 0, angle: 135, visible: true},
+    actor2: {x: -280, y: 326, angle: 225, visible: true}
+}
+
+const conditions = {
+    "FaceToFace": faceToFaceConfig,
+    "BackToBack": backToBackConfig,
+    "OffsetFacing": offsetFacing 
+};
+
+controller.addEventListener("initialized", async () => {
+    const fullViewportActors = new Actors("./person.png", conditions, controller.renderer.fullViewport);
+    fullViewportActors.update("FaceToFace");
+    const paneActors = Object.keys(controller.renderer.panes)
+          .map(condition => {
+            if (condition === "Baseline") return;
+            const pane = controller.renderer.panes[condition];
+            const paneActors = new Actors(texture, conditions, pane);
+            paneActors.update(condition);
+            return paneActors;
+          })
+
+    document.querySelector('#app').querySelector("#sightButton").addEventListener("click", () => {
+        fullViewportActors.toggleViewLines();
+        paneActors.forEach(pa => pa?.toggleViewLines());
+    });
+
+    controller.addEventListener("frameUpdated", (frame) => {
+        if (1000 < frame && frame < 2000) {
+            console.log(frame);
+            fullViewportActors.update("OffsetFacing");
+        }
+        if (2000 < frame) {
+            fullViewportActors.update("BackToBack");
+        }
+    });
+});
+
+
+      });
+    </script>
+  </body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video with Canvas Overlay</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://unpkg.com/tabulator-tables@5.4.4/dist/css/tabulator.min.css" rel="stylesheet">
+
+  <script src="./two.min.js" defer></script>
+  <script src="./tracking_fixer.js" defer></script>
+
+  <style>
+    :root {
+      --control-bg: #c1c1c1;
+      --timeline-bg: #1e1e1e;
+      --font: 'Inconsolata', monospace;
+      --spacing: 5px;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background: #f9f9f9;
+      color: #222;
+    }
+
+    pre {
+      font-family: var(--font);
+      padding: 10px;
+      background: #eee;
+      overflow-x: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<pre>
+-------------------------------------------------
+---controls------------------input---------------
++==========================+====================+
+| play/pause               | spacebar           |
+| zoom                     | scroll (timeline)  |
+| pan                      | ctrl+drag timeline |
+| speedup                  | shift+'+'          |
+| slowdown                 | shift+'-'          |
+| forward/backward 1 frame | ← or →             |
+| forward/backward 10frame | shift+← or shift+→ |
++--------------------------+--------------------+
+</pre>
+
+<script>
+  const domPromise = new Promise(resolve => {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", resolve);
+    } else {
+      resolve();
+    }
+  });
+
+  const dataPromise = fetch('data/experiment_2_2023-12-06.json.gz')
+    .then(response => response.blob())
+    .then(compressedBlob => {
+      const ds = new DecompressionStream("gzip");
+      const decompressedStream = compressedBlob.stream().pipeThrough(ds);
+      return new Response(decompressedStream).text();
+    })
+    .then(text => JSON.parse(text))
+    .catch(err => {
+      console.error('Failed to load compressed JSON:', err);
+    });
+
+  Promise.all([domPromise, dataPromise]).then(([_, data]) => {
+    console.log(data)
+    const container = document.getElementById("container");
+    //const fixer = new TrackingFixer(container, "video.mp4", 29.97);
+    //fixer.loadData(data);
+  
+  });
+</script>
+
+</body>
+</html>
+-->

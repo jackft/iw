@@ -1,2 +1,0 @@
-term,gaze_pairwise,talk_pairwise,odds.ratio,std.error,df,null,statistic,p.value
-gaze*talk,FALSE / TRUE,FALSE / TRUE,2.33739763195908,0.641124550210301,Inf,1,3.09540454820828,0.00196544622451174
