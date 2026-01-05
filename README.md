@@ -6,28 +6,6 @@
 
 ---
 
-## Videos
-
-<video controls src="figures/videos/SM1_demonstration.mp4"></video>
-**Movie. |** A demonstration of how social interactions affect pedestrian traffic flow by imposing proxemic norms, conditioned on interactants' involvement signs.
-
-<video controls src="figures/videos/SM2_experiment_1.mp4"></video>
-**Movie. |** Experiment 1 conditions.
-
-<video controls src="figures/videos/SM3_experiment_2.mp4"></video>
-**Movie. |** Experiment 2 conditions & tracking.
-
-<video controls src="figures/videos/SM4_experiment_3.mp4"></video>
-**Movie. |** Experiment 3 conditions.
-
-<video controls src="figures/videos/SM5_experiment_4.mp4"></video>
-**Movie. |** Experiment 4 conditions & tracking.
-
-<video controls src="figures/videos/SM6_collective_breaching.mp4"></video>
-**Movie. |** Qualitative results for collective breaching in experiment 2.
-
-## About
-
 Forecasting pedestrian behavior remains an open problem in robotics, partly due to emergent physical dynamics resembling complex systems. We argue that social dynamics also play a critical role in pedestrian navigation. People interacting (e.g. conversing) on a path impose variable proxemic norms on pedestrians – tacit social rules that regulate the use of physical space. In 4 field experiments with 4,911 participants, we show that pedestrians are acutely aware of others’ social interactions in that they create an invisible wall between interactants that pedestrians try to avoid breaching. Breaching depends on how interactants display involvement in social interactions (body orientation, gaze, and proximity) and whether preceding pedestrians had breached. These results demonstrate how physical mobility in public places depends on pedestrians’ social computations.
 
 This repository contains the data, statistical analysis, and figures from our investigation.
