@@ -45,6 +45,77 @@
       display: flex;
       justify-content: center;
     }
+
+    .gallery {
+      display: grid;
+      gap: 0.75rem;
+      justify-items: center;
+      width: 100%;
+    }
+
+    @media (max-width: 479px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Small tablets: 2 columns */
+    @media (min-width: 480px) and (max-width: 767px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Medium devices: 3 columns */
+    @media (min-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .gallery-item {
+      max-width: 280px;
+      width: 100%;
+      border: 2px solid #1a73e8;
+    }
+
+    .gallery-thumb {
+      display: grid;
+      grid-template-areas: "stack";
+    }
+
+    .gallery-thumb img,
+    .gallery-label {
+      grid-area: stack;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: auto;
+    }
+
+    .gallery-label {
+      align-self: start;
+      justify-self: center;
+      margin: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      background: rgba(0, 0, 0, 0.65);
+      color: white;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .gallery-item:hover,
+    .gallery-item:focus-visible {
+      border-color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      outline: none;
+    }
+
+    .gallery-item:hover .gallery-label {
+      background: rgba(0, 0, 0, 0.8);
+    }
   </style>
 </head>
 <body>
@@ -212,6 +283,60 @@
         <h2 class="subtitle has-text-centered">
           <b>Explorable 1</b> | Interactive exploration of experiment 2 trajectory data from 2023-12-07.
         </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered mb-4">
+      Explore more trajectory data by date
+    </h2>
+
+    <div class="gallery">
+      <a class="gallery-item" href="explorables/2023-11-14">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-11-14/thumbnail.png" alt="2023-11-14 explorable preview">
+          <span class="gallery-label">2023-11-14</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-11-28">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-11-28/thumbnail.png" alt="2023-11-28 explorable preview">
+          <span class="gallery-label">2023-11-28</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-01">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-01/thumbnail.png" alt="2023-12-01 explorable preview">
+          <span class="gallery-label">2023-12-01</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-06">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-06/thumbnail.png" alt="2023-12-06 explorable preview">
+          <span class="gallery-label">2023-12-06</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-07">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-07/thumbnail.png" alt="2023-12-07 explorable preview">
+          <span class="gallery-label">2023-12-07</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-08">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-08/thumbnail.png" alt="2023-12-08 explorable preview">
+          <span class="gallery-label">2023-12-08</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
