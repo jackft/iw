@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="Invisible Walls | how pedestrians navigate around social interactions">
+  <meta property="og:title" content="Invisible Walls | how pedestrians navigate around social interactions"/>
+  <meta property="og:description" content="Proxemic norms – tacit rules that regulate the social use of space. Here we investigate how pedestrians reason about others’ social interactions to avoid interrupting them."/>
+  <meta property="og:url" content="https://jackft.github.io/invisible_walls/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/figure_1.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <title>Invisible Walls | how pedestrians navigate around social interactions</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <script src="static/explorables/ccl-traj-viz.iife.js"></script>
+  <link rel="stylesheet" href="static/explorables/ccl-traj-viz.css">
+  <link href="https://unpkg.com/tabulator-tables@5.4.4/dist/css/tabulator.min.css" rel="stylesheet">
+
+  <style>
+    #app {
+      font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    }
+    #viewport {
+      display: flex;
+      justify-content: center;
+    }
+
+    .gallery {
+      display: grid;
+      gap: 0.75rem;
+      justify-items: center;
+      width: 100%;
+    }
+
+    @media (max-width: 479px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Small tablets: 2 columns */
+    @media (min-width: 480px) and (max-width: 767px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Medium devices: 3 columns */
+    @media (min-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .gallery-item {
+      max-width: 280px;
+      width: 100%;
+      border: 2px solid #1a73e8;
+    }
+
+    .gallery-thumb {
+      display: grid;
+      grid-template-areas: "stack";
+    }
+
+    .gallery-thumb img,
+    .gallery-label {
+      grid-area: stack;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: auto;
+    }
+
+    .gallery-label {
+      align-self: start;
+      justify-self: center;
+      margin: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      background: rgba(0, 0, 0, 0.65);
+      color: white;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .gallery-item:hover,
+    .gallery-item:focus-visible {
+      border-color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      outline: none;
+    }
+
+    .gallery-item:hover .gallery-label {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Invisible Walls | how pedestrians navigate around social interactions</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="http://jackterwilliger.com/" target="_blank">Jack Terwilliger</a>,</span>
+              <span class="author-block">
+                <span>Julia Di Silvestri</span>,
+              </span>
+              <span class="author-block">
+                <span>Seika Murase</span>,
+              </span>
+              <span class="author-block">
+                <span>Anne Elizabeth Clark White</span>,
+              </span>
+              <span class="author-block">
+                <a href="https://cclab.ucsd.edu/" target="_blank">Federico Rossano</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of California, San Diego<br></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://github.com/jackft/iw" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/figure_1.png" alt="teaser image" style="max-width: 100%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Fig. 1</b> | A diagram of our field experiments. Actors (shown in orange) stood in busy pathways while displaying 5 distinct signs of interactional involvement (see depictions of Variables 1-5). Over various conditions, we observed whether pedestrians (shown in blue) walked between or around our actors and we measured pedestrians’ walking trajectories.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section id="abstract" class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content">
+          <p>
+            Pedestrian dynamics are characterized as complex physical systems constrained by social norms, like personal space. Yet, prior research has ignored the spatial norms imposed by others’ social interactions, such as conversations. Unlike physical obstacles, the boundaries of social interactions are latent — even more so than those of personal space — as if they are invisible walls, and must be inferred from signs of interactional involvement. In four field experiments with 4,911 participants, we show that pedestrians integrate others’ gaze, proximity, body orientation, and talk to avoid interrupting possible interactions. However, pedestrians also collectively violate these spatial norms by walking through an interaction if other pedestrians had already done so. These results demonstrate how physical mobility depends on pedestrians’ social computations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section id="video" class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video controls src="supplementary/SM1_demonstration.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 1</b> | A demonstration of proxemic norms and their effects on pedestrian traffic flow.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section id="explorable" class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3 has-text-centered mb-4">Trajectory Explorable</h2>
+        <div id="app"></div>
+        <script src="static/explorables/index.js"></script>
+        <h2 class="subtitle has-text-centered">
+          <b>Explorable 1</b> | Interactive exploration of experiment 2 trajectory data from 2023-12-07.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered mb-4">
+      Explore more trajectory data by date
+    </h2>
+
+    <div class="gallery">
+      <a class="gallery-item" href="explorables/2023-11-14">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-11-14/thumbnail.png" alt="2023-11-14 explorable preview">
+          <span class="gallery-label">2023-11-14</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-11-28">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-11-28/thumbnail.png" alt="2023-11-28 explorable preview">
+          <span class="gallery-label">2023-11-28</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-01">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-01/thumbnail.png" alt="2023-12-01 explorable preview">
+          <span class="gallery-label">2023-12-01</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-06">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-06/thumbnail.png" alt="2023-12-06 explorable preview">
+          <span class="gallery-label">2023-12-06</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-07">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-07/thumbnail.png" alt="2023-12-07 explorable preview">
+          <span class="gallery-label">2023-12-07</span>
+        </div>
+      </a>
+
+      <a class="gallery-item" href="explorables/2023-12-08">
+        <div class="gallery-thumb">
+          <img src="explorables/2023-12-08/thumbnail.png" alt="2023-12-08 explorable preview">
+          <span class="gallery-label">2023-12-08</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="videos" class="hero teaser" style="margin-top: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video controls src="supplementary/SM2_experiment_1.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 2</b> | Experiment 1 conditions.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video controls src="supplementary/SM3_experiment_2.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 3</b> | Experiment 2 conditions & qualitative tracking results.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video controls src="supplementary/SM4_experiment_3.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 4</b> | Experiment 3 conditions.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video controls src="supplementary/SM5_experiment_4.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 5</b> | Experiment 4 conditions and qualitative tracking results.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video controls src="supplementary/SM6_collective_breaching.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 6</b> | Qualitative collective breaching results.
+        </h2>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Container */
+.controller-container canvas {
+}
+
+/* Slider styling */
+.slider {
+    width: 95%;
+    max-width: 800px;
+    flex: 1;
+    border-radius: 3px;
+    background: linear-gradient(to right, #007aff 0%, #007aff 0%, #ccc 0%, #ccc 100%);
+    outline: none;
+    transition: background 0.2s ease;
+}
+
+/* Controls row: flex container */
+.controls-row {
+    background: #a1a1a1;
+    display: flex;
+    gap: 10px;
+    width: 95%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3px 10px;
+}
+
+/* Individual info boxes inside controls row */
+.info {
+    display: flex;
+    gap: 5px;
+    min-width: 150px;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.iw-table {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Play/Pause button */
+.play-button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
+}
+
+.iconplay-background {
+    background-image: url('./play.svg');
+}
+
+.iconpause-background {
+    background-image: url('./pause.svg');
+}
+
+.iconfaster-background {
+    background-image: url('./faster.svg');
+}
+
+.iconslower-background {
+    background-image: url('./slower.svg');
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* you can define your specific SVG class like this */
+.icontile-background {
+    background-image: url('./tile.svg'); /* update path */
+}
+
+/* text alignment tweaks */
+.label-text {
+    font-size: 0.9rem;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap; /* allows wrapping if too long */
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9em;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid #444;
+    display: inline-block;
+}
