@@ -1,0 +1,4 @@
+term,contrast,null.value,odds.ratio,std.error,df,null,statistic,p.value
+body_orientation,FaceToFace vs. 45OffsetFacing,0,0.165689580201115,0.072659686693415,Inf,1,-4.09924821576518,4.14494318787143e-05
+body_orientation,FaceToFace vs. BackToBack,0,0.0291337183170106,0.0197115835603244,Inf,1,-5.22599931427685,1.73217000462088e-07
+body_orientation,FaceToFace vs Baseline,0,0.0157971772781093,0.00776621967574247,Inf,1,-8.43724406846621,3.24907542052649e-17

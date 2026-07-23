@@ -1,0 +1,3 @@
+term,contrast,null.value,odds.ratio,std.error,df,null,statistic,p.value
+gaze*type_of_interaction,"Gaze vs. Phone, Mural",0,0.867859388756635,0.226714383257547,Inf,1,-0.542523445089127,0.587457960843991
+gaze*type_of_interaction,"Gaze vs. Phone, Sign",0,0.220459654894154,0.0494969626289232,Inf,1,-6.73463430781481,1.64342737946237e-11

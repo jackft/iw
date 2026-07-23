@@ -1,0 +1,2 @@
+Hypothesis,Estimate,Est.Error,CI.Lower,CI.Upper,Evid.Ratio,Post.Prob,Star
+(conditionHumans-conditionChairs) < 0,-7.05148897590528,1.55597541909855,-9.84024863225742,-4.73737204645058,Inf,1,*
