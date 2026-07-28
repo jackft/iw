@@ -1,0 +1,9 @@
+experiment,condition,actor_role,rts_x,rts_y,units,notes
+2,all,actor_1,-280,0,cm,"Position constant across Baseline/FaceToFace/BackToBack/OffsetFacing; only body orientation varies. Matches EXPERIMENT_2_WALL_X_COORD_CM."
+2,all,actor_2,-280,326,cm,"Position constant across conditions; actors stand ~326 cm (~10 ft) apart along y."
+2,all,wall_middle,-280,163,cm,"Derived midpoint of actor_1 and actor_2."
+4,Humans,wall_actor,-0.18,41.97,cm,"One of two actors forming the interaction in the Humans condition."
+4,Humans,obstructing_actor,187.0,20.4,cm,"Second actor; matches rts_distance_to_obstructing_actor and proximity_to_oc in analysis.R."
+4,Humans,wall_middle,93.41,31.185,cm,"Derived midpoint of the two actors; matches rts_distance_to_wall_middle."
+4,Chairs,chair_1,-0.18,41.97,cm,"Chairs occupy the same spots as the Humans-condition actors (props, not actors)."
+4,Chairs,chair_2,187.0,20.4,cm,"Chairs occupy the same spots as the Humans-condition actors (props, not actors)."
