@@ -6,7 +6,7 @@
   <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="Invisible Walls | how pedestrians navigate around social interactions">
   <meta property="og:title" content="Invisible Walls | how pedestrians navigate around social interactions"/>
-  <meta property="og:description" content="Proxemic norms – tacit rules that regulate the social use of space. Here we investigate how pedestrians reason about others’ social interactions to avoid interrupting them."/>
+  <meta property="og:description" content="Proxemic norms – tacit rules that regulate the social use of space. Here we investigate how pedestrians reason about others' social interactions to avoid interrupting them."/>
   <meta property="og:url" content="https://jackft.github.io/invisible_walls/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/image/figure_1.png" />
@@ -17,6 +17,7 @@
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -116,6 +117,61 @@
     .gallery-item:hover .gallery-label {
       background: rgba(0, 0, 0, 0.8);
     }
+
+    body {
+      font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif;
+      font-size: 1.1rem;
+      background-color: #ffffff;
+    }
+
+    html {
+      background-color: #ffffff;
+    }
+
+    .button {
+      font-family: "Google Sans", "Noto Sans", sans-serif;
+    }
+
+    .publication-title {
+      font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif;
+      line-height: 1.15;
+    }
+
+    .title.is-3 {
+      font-size: 1.25rem !important;
+      text-align: center;
+    }
+
+    .publication-authors {
+      font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif;
+    }
+
+    .publication-authors sup {
+      font-size: 0.6em;
+    }
+
+    .subtitle {
+      font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif;
+    }
+
+    .title-invisible-walls {
+      display: block;
+      font-style: italic;
+      color: #00a08a;
+      -webkit-text-stroke: 1px black;
+    }
+
+    .title-rest {
+      display: block;
+      font-style: normal;
+      color: inherit;
+      -webkit-text-stroke: 0;
+    }
+
+    figcaption, .fig-caption, .subtitle.has-text-centered {
+      font-size: 1em;
+      font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif;
+    }
   </style>
 </head>
 <body>
@@ -126,27 +182,28 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Invisible Walls | how pedestrians navigate around social interactions</h1>
+            <h1 class="title is-1 publication-title">
+              <span class="title-invisible-walls">Invisible Walls</span>
+              <span class="title-rest">How Pedestrians Navigate</span>
+              <span class="title-rest">Around Social Interactions</span>
+            </h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="http://jackterwilliger.com/" target="_blank">Jack Terwilliger</a>,</span>
-              <span class="author-block">
-                <span>Julia Di Silvestri</span>,
-              </span>
-              <span class="author-block">
-                <span>Seika Murase</span>,
-              </span>
-              <span class="author-block">
-                <span>Anne Elizabeth Clark White</span>,
-              </span>
-              <span class="author-block">
-                <a href="https://cclab.ucsd.edu/" target="_blank">Federico Rossano</a>
-              </span>
+              <span class="author-block"><a href="http://jackterwilliger.com/" target="_blank">Jack Terwilliger</a><sup>1*</sup>,&ensp;</span>
+              <span class="author-block">Julia Di Silvestri<sup>2</sup>,&ensp;</span>
+              <span class="author-block">Seika Murase<sup>1</sup></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Anne Elizabeth Clark White<sup>3</sup>,&ensp;</span>
+              <span class="author-block"><a href="https://cclab.ucsd.edu/" target="_blank">Federico Rossano</a><sup>1</sup></span>
             </div>
 
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">University of California, San Diego<br></span>
+            <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+              <span class="author-block"><sup>1</sup>Dept. of Cognitive Science, UC San Diego&ensp;</span>
+              <span class="author-block"><sup>2</sup>Dept. of Biology, UC San Diego&ensp;</span>
+              <span class="author-block"><sup>3</sup>Herbert Wertheim School of Public Health &amp; Human Longevity Science, UC San Diego</span>
+            </div>
+            <div class="is-size-7 publication-authors" style="margin-top: 0.25rem;">
+              <span><sup>*</sup>Corresponding author: <a href="mailto:jterwilliger@ucsd.edu">jterwilliger@ucsd.edu</a></span>
             </div>
 
             <div class="column has-text-centered">
@@ -169,6 +226,24 @@
                     <span>Code</span>
                   </a>
                 </span>
+                <span class="link-block">
+                  <a href="#explorable"
+                  class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-gamepad"></i>
+                    </span>
+                    <span>Explorable</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#bibtex"
+                  class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-quote-left"></i>
+                    </span>
+                    <span>Cite</span>
+                  </a>
+                </span>
             </div>
           </div>
         </div>
@@ -178,13 +253,17 @@
 </section>
 
 
-<section class="hero teaser">
+<section id="fig1" class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <div style="max-width: 70%; margin: 0 auto 2rem;">
+        <p style="font-style: italic; text-align: center; font-size: 1.4rem; font-family: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif; margin-bottom: 0.25rem;">&#8220;the best way to learn the location of invisible boundaries is to keep walking until somebody complains&#8221;</p>
+        <p style="font-style: italic; text-align: right; font-size: 0.95rem; font-family: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif;">— <a href="https://archive.org/details/personalspacebeh00somm" target="_blank">Robert Sommer (1969)</a></p>
+      </div>
       <img src="static/images/figure_1.png" alt="teaser image" style="max-width: 100%; height: auto;"/>
-        <h2 class="subtitle has-text-centered">
-          <b>Fig. 1</b> | A diagram of our field experiments. Actors (shown in orange) stood in busy pathways while displaying 5 distinct signs of interactional involvement (see depictions of Variables 1-5). Over various conditions, we observed whether pedestrians (shown in blue) walked between or around our actors and we measured pedestrians’ walking trajectories.
-        </h2>
+      <h2 class="subtitle has-text-centered fig-caption">
+        <b>Fig. 1</b> | A diagram of our field experiments. Actors (shown in orange) stood in busy pathways while displaying 5 distinct signs of interactional involvement (see depictions of Variables 1–5). Over various conditions, we observed whether pedestrians (shown in blue) walked between or around our actors and we measured pedestrians' walking trajectories.
+      </h2>
     </div>
   </div>
 </section>
@@ -197,7 +276,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content">
           <p>
-            Pedestrian dynamics are characterized as complex physical systems constrained by social norms, like personal space. Yet, prior research has ignored the spatial norms imposed by others’ social interactions, such as conversations. Unlike physical obstacles, the boundaries of social interactions are latent — even more so than those of personal space — as if they are invisible walls, and must be inferred from signs of interactional involvement. In four field experiments with 4,911 participants, we show that pedestrians integrate others’ gaze, proximity, body orientation, and talk to avoid interrupting possible interactions. However, pedestrians also collectively violate these spatial norms by walking through an interaction if other pedestrians had already done so. These results demonstrate how physical mobility depends on pedestrians’ social computations.
+            Pedestrian dynamics are characterized as complex physical systems constrained by social norms, like personal space. Yet, prior research has ignored the spatial norms imposed by others' social interactions, such as conversations. Unlike physical obstacles, the boundaries of social interactions are latent — even more so than those of personal space — as if they are invisible walls, and must be inferred from signs of interactional involvement. In four field experiments with 4,911 participants, we show that pedestrians integrate others' gaze, proximity, body orientation, and talk to avoid interrupting possible interactions. However, pedestrians also collectively violate these spatial norms by walking through an interaction if other pedestrians had already done so. These results demonstrate how physical mobility depends on pedestrians' social computations.
           </p>
         </div>
       </div>
@@ -206,18 +285,217 @@
 </section>
 <!-- End paper abstract -->
 
-<section id="video" class="hero teaser">
+<!-- Intro -->
+<section id="intro" class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Short Introduction</h2>
+
+        <p style="margin-bottom: 1rem;">One of the key demands of spatial navigation is the frequent need to traverse public places, and, therefore, pedestrians must regularly deal with coming into contact with other humans. As such, an understanding of pedestrian behavior needs to take into account a broad range of human social dynamics if we are to understand pedestrian physical dynamics.</p>
+
+        <video controls src="supplementary/SM1_demonstration.mp4" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
+          Your browser does not support the video tag.
+        </video>
+        <p class="subtitle has-text-centered" style="margin-bottom: 2rem;">
+          <b>Vid. 1</b> | A demonstration of proxemic norms and their effects on pedestrian traffic flow.
+        </p>
+
+        <p style="margin-bottom: 1rem;">One way people informally coordinate the use of space for transit and social interaction is through <em>proxemic norms</em> (Hall, 1966) — tacit rules that regulate the social use of space. Much research has focused on how pedestrians avoid intruding into each other's <em>personal space</em> (Sommer, 1959), defined as &#8220;an area with invisible boundaries surrounding a person's body into which intruders may not come&#8221; (Sommer, 1969).</p>
+
+        <p style="margin-bottom: 1rem;">However, research has largely neglected the activities those individuals are engaged in, especially their social interactions, such as conversation. Consider, for example, two individuals chatting in front of a busy library entrance; even if the space between them is physically unoccupied or claimed by personal space, pedestrians will tend to walk around the interactants rather than between them (<a href="#fig1">Fig. 1</a>, <a href="#methods">Vid. 1</a>). Such activities impose an <em>interactional territory</em> (Lyman &amp; Scott, 1967): an invisible boundary around an interaction into which non-participants may not come. While prior work has characterized the spatial arrangements interactants adopt during face-to-face encounters, such as <em>F-formations</em> (Kendon, 1990), it has not investigated how pedestrians navigate around social interactions in naturalistic settings.</p>
+        
+        <figure style="margin-bottom: 1rem;">
+          <img src="static/images/extra_proxemics.png" alt="proxemics figure" style="max-width: 100%; height: auto;"/>
+          <figcaption class="subtitle has-text-centered" style="margin-top: 0.5rem;"><b>Fig. 2</b> | Proxemic boundaries superimposed on a physical scene. The pedestrian's personal space is represented in red. The interactants' interactional territory is depicted as an area surrounding their interaction.</figcaption>
+        </figure>
+
+        <p style="margin-bottom: 1rem;">We propose that in order for pedestrians to navigate around social interactions, they must recognize the presence, extent, and claims of interactional territory. However, unlike physical obstacles and to a greater degree than personal space, interactional territories are not directly observable. We propose that pedestrians infer the presence and extent of interactional territory by reading others' <em>involvement signs</em> (Goffman, 1963). These include where others are looking, whether they are talking, how their bodies are oriented, how far apart they are standing, where they are standing, and so on.</p>
+
+        <p style="margin-bottom: 1rem;">We also propose that once pedestrians detect interactional territory, they must then reason about the social and energetic costs of possible walking trajectories. On one hand, politeness motivates pedestrians to avoid breaching others’ interactional territory, since they would impede and interrupt those people. Therefore, doing so constitutes a negative face-threatening act (Brown &amp; Levinson, 1987; Goffman, 1955). On the other hand, the least socially costly trajectory may not be the least energetically costly trajectory, and so pedestrians are motivated to breach interactional territory. The collective behavior of pedestrians may facilitate the breaching of interactional territory (see <a href="#vid6">Vid. 6</a>). Decisions to breach social norms are the product of both individual and collective decision-making (Krause et al., 2021). Pedestrians’ violations of explicit laws such as jaywalking (Faria et al., 2010) and trespassing (Keizer et al., 2008) are shaped by the behavior of other pedestrians.</p>
+
+        <video controls src="supplementary/SM6_collective_breaching.mp4" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
+          Your browser does not support the video tag.
+        </video>
+        <p class="subtitle has-text-centered" style="margin-bottom: 2rem;">
+          <b>Vid. 6</b> | Qualitative collective breaching results.
+        </p>
+
+        <p style="margin-bottom: 1rem;">Here, we investigate how pedestrians navigate around others’ social interactions using 4 breaching experiments (Garfindel, 1967). We show that pedestrians are acutely aware of others’ social interactions and the proxemic norms they impose. The probability pedestrians breach these norms depends on how others display their involvement in social interaction, specifically, their body orientation, interpersonal distance (5ft vs. 10ft), whether they shared mutual gaze, and whether they were speaking. These effects cannot be explained by gaze aversion or physical occupancy. Finally, we show that pedestrians engage in collective rule-breaking, where pedestrians are more likely to breach a proxemic norm when a preceding pedestrian has done so.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Intro -->
+
+<!-- Methods -->
+<section id="methods" class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Methods</h2>
+        <p style="margin-bottom: 1rem;">We positioned actors on heavily trafficked pedestrian pathways and observed how many pedestrians passed between (breached) versus around them. In experiment 1, two actors stood 5 or 10 feet apart in a 2×2×2 design manipulating mutual gaze (vs. looking at a phone), talk (vs. silence), and interpersonal distance, while also varying actor gender; we filmed 2,319 pedestrians (2017–2019) (see <a href="#vid2">Vid. 2</a>). In experiment 2, two actors stood 10 feet apart on a busy pathway while we manipulated their mutual body orientation (face to face, back to back, 45° offset, or a no-actor baseline); we filmed 978 pedestrians (2023) (see <a href="#vid3">Vid. 3</a>). In experiment 3, one actor stood in front of an informational sign or an art mural and either gazed at it or down at a phone; we observed 1,515 pedestrians (2018–2019) (see <a href="#vid4">Vid. 4</a>). In experiment 4, we recruited 99 undergraduates under the cover story of a visual-spatial memory task. On their return through an outdoor hallway, we placed either two women actors, two chairs, or nothing (baseline) across the entrance and recorded whether participants passed between or around them (see <a href="#vid5">Vid. 5</a>). In experiments 2 &amp; 4, we also tracked pedestrian trajectories through the space using computer vision and calibrated monocular cameras (see <a href="#explorable">Trajectory Explorable</a>).</p>
+
+        <table class="table is-fullwidth is-striped" style="font-family: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif;">
+          <thead>
+            <tr>
+              <th>Experiment</th>
+              <th>Observed</th>
+              <th>Conditions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2,319</td>
+              <td>distance x distance x talk</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>978</td>
+              <td>body orientation</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>1,515</td>
+              <td>interactions with media</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>99 (recruited)</td>
+              <td>people vs. inanimate objects</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Methods -->
+
+<section id="videos" class="hero teaser" style="margin-top: 3rem;">
   <div class="container is-max-desktop">
     <div class="hero-body">
-        <video controls src="supplementary/SM1_demonstration.mp4" style="max-width: 100%; height: auto;">
+        <video id="vid2" controls src="supplementary/SM2_experiment_1.mp4" style="max-width: 100%; height: auto;">
           Your browser does not support the video tag.
         </video>
         <h2 class="subtitle has-text-centered">
-          <b>Vid. 1</b> | A demonstration of proxemic norms and their effects on pedestrian traffic flow.
+          <b>Vid. 2</b> | Experiment 1 conditions.
         </h2>
     </div>
   </div>
 </section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video id="vid3" controls src="supplementary/SM3_experiment_2.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 3</b> | Experiment 2 conditions &amp; qualitative tracking results.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video id="vid4" controls src="supplementary/SM4_experiment_3.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 4</b> | Experiment 3 conditions.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video id="vid5" controls src="supplementary/SM5_experiment_4.mp4" style="max-width: 100%; height: auto;">
+          Your browser does not support the video tag.
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <b>Vid. 5</b> | Experiment 4 conditions and qualitative tracking results.
+        </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section id="results" class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Short Results</h2>
+
+        <p style="margin-bottom: 1rem;">Across experiments 1 and 2, pedestrians were systematically less likely to walk between actors based on the <em>involvement signs</em> the actors displayed (see <a href="#fig2">Fig. 2</a>). In experiment 1, pedestrians were 3× less likely to breach when actors shared mutual gaze than when they looked at their phones, 2× less likely when actors were talking than silent, and 17× less likely when actors stood 5 feet apart than 10 feet apart. Notably, gaze and talk did not combine additively: pedestrians were no less likely to breach when actors shared mutual gaze <em>and</em> talked than when they shared mutual gaze in silence, suggesting that mutual gaze alone saturated pedestrians' inference of social involvement. Experiment 2 revealed strong effects of body orientation — a key resource in how people conduct social interactions (Hall, 1966; Rossano, 2012; Schegloff, 1998). Face-to-face actors were breached 6× less than actors offset 45°, and 62× less than the no-actor baseline. Pedestrians appeared to reason about the actors' body orientation relative to their own: when actors stood 45° offset, pedestrians approaching head-on were 13× less likely to breach than those approaching from behind.</p>
+
+        <figure id="fig2" style="margin-bottom: 2rem;">
+          <img src="static/images/figure_2.png" alt="Figure 2" style="max-width: 100%; height: auto;">
+          <figcaption class="has-text-centered" style="margin-top: 0.5rem;"><b>Fig. 2</b> | (<b>A</b>) Video frames from experiment 1. (<b>B</b>) Video frames from experiment 2. (<b>C</b>) Breaching probabilities from experiment 1. Dots represent the estimated marginal mean and lines represent 95% confidence intervals. Empirical breaching rates are represented with white diamonds. (<b>D</b>) Breaching rates from experiment 2 plotted by condition and pedestrian walking direction. Conditions are depicted on the right side of the plot. (<b>E</b>) Pedestrian trajectories from experiment 2 are plotted and colored by direction. Green is rightward. Black is leftward. Actor body orientation is depicted by red arrows. Types of terrain are represented by the colored background. Off-white depicts a pedestrian pathway, yellow depicts patches of dirt and vegetation, and grey depicts an asphalt roadway.</figcaption>
+        </figure>
+
+        <p style="margin-bottom: 1rem;">Experiment 3 showed that pedestrians reason about the type of interaction our actors were involved in (see <a href="#fig3">Fig. 3</a>). Pedestrians were over 3× more likely to walk between a sign and an actor than between two actors — but only when the actor looked at their phone. When the actor gazed at the sign, pedestrians were no more likely to breach than in the two-actor condition. Additionally, pedestrians were significantly more likely to walk between an actor and a mural no matter whether they were looking at their phone or the mural. These results suggest pedestrians reason about what kinds of activities others' are engaged in and not merely avoiding gaze.</p>
+
+        <figure id="fig3" style="margin-bottom: 2rem;">
+          <img src="static/images/figure_3.png" alt="Figure 3" style="max-width: 100%; height: auto;">
+          <figcaption class="has-text-centered" style="margin-top: 0.5rem;"><b>Fig. 3</b> | (<b>A</b>) Video frames from experiment 3 of the 5&thinsp;ft + mutual gaze + sign (left) and the 5&thinsp;ft + no gaze + sign condition (right). (<b>B</b>) Breaching probabilities pooled from experiment 1 &amp; 3 at 5 feet. Dots represent the estimated marginal mean and lines represent 95% confidence intervals. Empirical breaching rates are represented with white diamonds.</figcaption>
+        </figure>
+
+        <p style="margin-bottom: 1rem;">Experiment 4 confirmed this with a controlled design (see <a href="#fig4">Fig. 4</a>): 100% of participants walked between two chairs or through the empty baseline, but only 12% walked between two actors standing in the same position.</p>
+
+        <figure id="fig4" style="margin-bottom: 2rem;">
+          <img src="static/images/figure_4.png" alt="Figure 4" style="max-width: 100%; height: auto;">
+          <figcaption class="has-text-centered" style="margin-top: 0.5rem;"><b>Fig. 4</b> | (<b>A</b>) Video frames from experiment 4. (<b>B</b>) Pedestrian trajectories from experiment 4 colored by pedestrian gender (green for man, purple for woman). Colored circles mark where each participant changed course around the actors.</figcaption>
+        </figure>
+
+        <p style="margin-bottom: 1rem;">We observed equivocal effects of actor gender. In experiment 1, pedestrians were twice as likely to breach the interactional territory of two women actors than two men actors. This effect did not replicate in experiment 3 alone, but was significant when pooling experiments 1 and 3. Pedestrian gender, however, had no effect on breaching in any experiment, nor did we find any interaction between pedestrian and actor gender. In experiment 4, we tested whether men pedestrians approached actors closer before altering course — which would suggest an expectation that others would yield — but found no evidence of this (see <a href="#fig4">Fig. 4</a>). For a fuller discussion of these equivocal gender effects and their relationship to prior work, <a href="https://arxiv.org/pdf/2607.20876" target="_blank">see the full paper</a>.</p>
+
+        <p style="margin-bottom: 1rem;">Finally, pedestrians were over twice as likely to breach if another pedestrian had done so in the preceding 5 seconds, controlling for crowding — evidence of collective social contagion in proxemic norm-breaking (see <a href="#fig5">Fig. 5</a>, <a href="#vid6">Vid. 6</a>).</p>
+
+        <figure id="fig5" style="margin-bottom: 2rem;">
+          <img src="static/images/figure_5.png" alt="Figure 5" style="max-width: 100%; height: auto;">
+          <figcaption class="has-text-centered" style="margin-top: 0.5rem;"><b>Fig. 5</b> | On December 7th, 2023 at 12:31:35, over the span of 35.5 seconds, a crowd of 46 pedestrians walked past an art mural while two actors silently stood 10 feet apart while facing and staring at each other. The first 22 pedestrians walk around the actors. 13.6 seconds after the arrival of the first pedestrian, a group of 3 pedestrians (in red) walk between the actors within 0.1 seconds of each other. Just 2.1 seconds later, the first of 12 of the 19 remaining pedestrians also walk between them. (<b>A</b>) Video frames before, during, and after the group of 3 pedestrians breaches. (<b>B</b>) Pedestrian trajectories before and after the group of 3 pedestrians breaches.</figcaption>
+        </figure>
+
+        <video id="vid6" controls src="supplementary/SM6_collective_breaching.mp4" style="max-width: 100%; height: auto; margin-bottom: 0.5rem;">
+          Your browser does not support the video tag.
+        </video>
+        <p class="subtitle has-text-centered" style="margin-bottom: 2rem;">
+          <b>Vid. 6</b> | Qualitative collective breaching results.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Results -->
+
+<!-- Discussion -->
+<section id="discussion" class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Discussion</h2>
+        <p style="margin-bottom: 1rem;">We showed that pedestrians make fine-grained inferences about others' social interactions. The probability that pedestrians breach an interactional territory depends systematically on both how others display their involvement in these activities and whether other pedestrians have already breached these territories. Unlike physical collisions, breaching proxemic norms does not just perturb the order of traffic — it also perturbs the social order.</p>
+        <p style="margin-bottom: 1rem;">This is reminiscent of Herbert Simon's parable of the ant:</p>
+        <blockquote style="font-style: italic; text-align: justify; margin: 0 2rem 1rem; font-family: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif;">&#8220;Viewed as a geometric figure, the ant's path is irregular, complex, hard to describe. But its complexity is really a complexity in the surface of the beach, not a complexity in the ant.&#8221; <span style="white-space: nowrap;">— Simon (1969, p. 64)</span></blockquote>
+        <p style="margin-bottom: 1rem;">We argue that, similarly, pedestrians' paths are also complex and that this complexity is also a product of interaction with their environment. But, unlike Simon's parable, the trajectories we observed in humans are the result of a socially constructed reality. Pedestrian traffic reflects the rich human social <em>umwelt</em> (Uexküll, 1934)<sup><a href="#fn1">1</a></sup> as much as it reflects the dynamics of physical systems composed of people. In other words, pedestrians trace the contours of human sociality.</p>
+        <p style="margin-bottom: 1rem;">Furthermore, these results should remind us of the central role of conversational interaction in organizing human life. While some estimates show that humans spend 30% of their time involved in conversation (Levinson, 2025), our results show that, even when we ourselves are not involved in conversation, our minds are preoccupied and oriented toward others' conversations.</p>
+        <p style="margin-bottom: 1rem;">In general, the behavior of animals depends on their socioecology. This gives rise to a kind of <em>socially situated navigation</em> whereby hidden social structures govern the movement of animals — whether it be the presence of conversations and the proxemic norms they impose, or the social structure of rank among a group of macaque monkeys (<a href="https://comparative-cognition-lab.github.io/socially_situated_navigation_in_macaques_cogsci_2025/" target="_blank">Kaufhold, Terwilliger &amp; Rossano, 2025</a>).</p>
+        <p style="margin-bottom: 1rem;">This has consequences for human-centered design. Autonomous robots are increasingly designed to share pedestrian environments, and therefore they must be able to model the human social umwelt if they are to navigate safely and appropriately in it.</p>
+        <hr style="margin: 1.5rem 0 1rem;">
+        <p id="fn1" style="font-size: 0.85rem; color: #555;"><sup>1</sup> To avoid misrepresenting the rich sociality of real-world ants, they also actively participate in the social construction of their physical environment. The architecture of an ant colony consists of a complex geometric structure on which collectively constructed 'invisible' boundaries can be superimposed. The difference is that they mark these boundaries with chemical signs (Heyman et al., 2017).</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Discussion -->
 
 <section id="explorable" class="hero teaser">
   <div class="container is-max-desktop">
@@ -285,70 +563,60 @@
   </div>
 </section>
 
-<section id="videos" class="hero teaser" style="margin-top: 3rem;">
+<section id="bibtex" class="section hero is-light">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-        <video controls src="supplementary/SM2_experiment_1.mp4" style="max-width: 100%; height: auto;">
-          Your browser does not support the video tag.
-        </video>
-        <h2 class="subtitle has-text-centered">
-          <b>Vid. 2</b> | Experiment 1 conditions.
-        </h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">BibTeX</h2>
+        <div style="position: relative;">
+          <pre id="bibtex-text" style="font-size: 0.9rem; background: #f5f5f5; padding: 1.25rem; border-radius: 4px; white-space: pre-wrap; word-break: break-word;">@article{terwilliger2026invisible,
+  title={Invisible walls: how pedestrians navigate around social interactions},
+  author={Terwilliger, Jack and Di Silvestri, Julia and Murase, Seika and White, Anne Elizabeth Clark and Rossano, Federico},
+  journal={arXiv preprint arXiv:2607.20876},
+  year={2026}
+}</pre>
+          <button onclick="navigator.clipboard.writeText(document.getElementById('bibtex-text').innerText).then(() => { this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy', 2000); })"
+            style="position: absolute; top: 0.5rem; right: 0.5rem; font-family: 'Google Sans', sans-serif; font-size: 0.75rem; padding: 0.25rem 0.6rem; border: 1px solid #ccc; border-radius: 4px; background: white; cursor: pointer;">
+            Copy
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="hero teaser">
+<!-- References -->
+<section id="references" class="section">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-        <video controls src="supplementary/SM3_experiment_2.mp4" style="max-width: 100%; height: auto;">
-          Your browser does not support the video tag.
-        </video>
-        <h2 class="subtitle has-text-centered">
-          <b>Vid. 3</b> | Experiment 2 conditions & qualitative tracking results.
-        </h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">References</h2>
+        <ol style="font-size: 0.9rem; line-height: 1.7;">
+          <li>P. Brown, S. C. Levinson, <em>Politeness: Some Universals in Language Usage</em> (Cambridge University Press, 1987).</li>
+          <li>J. J. Faria, S. Krause, J. Krause, Collective behavior in road crossing pedestrians: The role of social information. <em>Behavioral Ecology</em> <b>21</b>, 1236–1242 (2010).</li>
+          <li>H. Garfinkel, <em>Studies in Ethnomethodology</em> (Prentice-Hall, 1967).</li>
+          <li>S. P. Kaufhold, J. Terwilliger, F. Rossano, <a href="https://comparative-cognition-lab.github.io/socially_situated_navigation_in_macaques_cogsci_2025/" target="_blank">Socially situated navigation: social rank and sex influence spatial navigation strategies in Japanese macaques.</a> <em>Proceedings of the Annual Meeting of the Cognitive Science Society</em> vol. 47 (2025).</li>
+          <li>E. Goffman, On face-work: An analysis of ritual elements in social interaction. <em>Psychiatry</em> <b>18</b>, 213–231 (1955).</li>
+          <li>E. Goffman, <em>Behavior in Public Places</em> (The Free Press, 1963).</li>
+          <li>E. T. Hall, <em>The Hidden Dimension</em> (Doubleday &amp; Co, 1966).</li>
+          <li>G. M. Heyman, D. Luo, C. Villanueva, The role of pheromones in the construction and maintenance of ant colony architecture. <em>Behavioral Ecology and Sociobiology</em> (2017).</li>
+          <li>K. Keizer, S. Lindenberg, L. Steg, The spreading of disorder. <em>Science</em> <b>322</b>, 1681–1685 (2008).</li>
+          <li>A. Kendon, <em>Conducting Interaction: Patterns of Behavior in Focused Encounters</em> (Cambridge University Press, 1990).</li>
+          <li>J. Krause, P. Romanczuk, E. Cracco, W. Arlidge, A. Nassauer, M. Brass, Collective rule-breaking. <em>Trends in Cognitive Sciences</em> <b>25</b>, 1082–1095 (2021).</li>
+          <li>S. C. Levinson, "The Interaction Engine and Social Life" in <em>The Interaction Engine: Language in Social Life and Human Evolution</em> (Cambridge University Press, 2025), pp. 107–148.</li>
+          <li>S. M. Lyman, M. B. Scott, Territoriality: A neglected sociological dimension. <em>Social Problems</em> <b>15</b>, 236–249 (1967).</li>
+          <li>F. Rossano, "Gaze in Conversation" in <em>The Handbook of Conversation Analysis</em>, J. Sidnell, T. Stivers, Eds. (Wiley, 2012), pp. 308–329.</li>
+          <li>E. A. Schegloff, Body torque. <em>Social Research</em> <b>65</b>(3), 535–596 (1998).</li>
+          <li>H. A. Simon, <em>The Sciences of the Artificial</em> (MIT Press, 1969).</li>
+          <li>R. Sommer, Studies in personal space. <em>Sociometry</em> <b>22</b>, 247–260 (1959).</li>
+          <li>R. Sommer, <em>Personal Space: The Behavioral Basis of Design</em> (Prentice-Hall, 1969).</li>
+          <li>J. von Uexküll, "A stroll through the worlds of animals and men" in <em>Instinctive Behavior: The Development of a Modern Concept</em>, C. H. Schiller, Ed. (International Universities Press, 1957), pp. 5–80.</li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <video controls src="supplementary/SM4_experiment_3.mp4" style="max-width: 100%; height: auto;">
-          Your browser does not support the video tag.
-        </video>
-        <h2 class="subtitle has-text-centered">
-          <b>Vid. 4</b> | Experiment 3 conditions.
-        </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <video controls src="supplementary/SM5_experiment_4.mp4" style="max-width: 100%; height: auto;">
-          Your browser does not support the video tag.
-        </video>
-        <h2 class="subtitle has-text-centered">
-          <b>Vid. 5</b> | Experiment 4 conditions and qualitative tracking results.
-        </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <video controls src="supplementary/SM6_collective_breaching.mp4" style="max-width: 100%; height: auto;">
-          Your browser does not support the video tag.
-        </video>
-        <h2 class="subtitle has-text-centered">
-          <b>Vid. 6</b> | Qualitative collective breaching results.
-        </h2>
-    </div>
-  </div>
-</section>
+<!-- End References -->
 
 </body>
 </html>

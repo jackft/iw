@@ -2,113 +2,111 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="Invisible Walls | how pedestrians navigate around social interactions">
   <meta property="og:title" content="Invisible Walls | how pedestrians navigate around social interactions"/>
-  <meta property="og:description" content="Proxemic norms – tacit rules that regulate the social use of space. Here we investigate how pedestrians reason about others’ social interactions to avoid interrupting them."/>
+  <meta property="og:description" content="Proxemic norms - tacit rules that regulate the social use of space. Here we investigate how pedestrians reason about others' social interactions to avoid interrupting them."/>
   <meta property="og:url" content="https://jackft.github.io/invisible_walls/"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="../../static/image/figure_1.png" />
+  <meta property="og:image" content="../../static/images/figure_1.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
-  <title>Invisible Walls | how pedestrians navigate around social interactions</title>
+  <title>Invisible Walls | Trajectory Explorable 2023-12-08</title>
   <link rel="icon" type="image/x-icon" href="../../static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
   <link rel="stylesheet" href="../../static/css/bulma.min.css">
-  <link rel="stylesheet" href="../../static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="../../static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="../../static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="../../static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="../../static/js/fontawesome.all.min.js"></script>
-  <script src="../../static/js/bulma-carousel.min.js"></script>
-  <script src="../../static/js/bulma-slider.min.js"></script>
-  <script src="../../static/js/index.js"></script>
-
   <script src="../../static/explorables/ccl-traj-viz.iife.js"></script>
   <link rel="stylesheet" href="../../static/explorables/ccl-traj-viz.css">
   <link href="https://unpkg.com/tabulator-tables@5.4.4/dist/css/tabulator.min.css" rel="stylesheet">
 
   <style>
-    #app {
-      font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    }
-    #viewport {
-      display: flex;
-      justify-content: center;
-    }
+    body { font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif; font-size: 1.1rem; background-color: #ffffff; }
+    html { background-color: #ffffff; }
+    .button { font-family: "Google Sans", "Noto Sans", sans-serif; }
+    .publication-title { font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif; line-height: 1.15; }
+    .title.is-3 { font-size: 1.25rem !important; text-align: center; }
+    .publication-authors { font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif; }
+    .publication-authors sup { font-size: 0.6em; }
+    .subtitle { font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif; }
+    .title-invisible-walls { display: block; font-style: italic; color: #00a08a; -webkit-text-stroke: 1px black; }
+    .title-rest { display: block; font-style: normal; color: inherit; -webkit-text-stroke: 0; }
+    #viewport { display: flex; justify-content: center; }
+    #app { font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; }
   </style>
 </head>
 <body>
-
 
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Invisible Walls | how pedestrians navigate around social interactions</h1>
+            <h1 class="title is-1 publication-title">
+              <span class="title-invisible-walls">Invisible Walls</span>
+              <span class="title-rest">How Pedestrians Navigate</span>
+              <span class="title-rest">Around Social Interactions</span>
+            </h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="http://jackterwilliger.com/" target="_blank">Jack Terwilliger</a>,</span>
-              <span class="author-block">
-                <span>Julia Di Silvestri</span>,
-              </span>
-              <span class="author-block">
-                <span>Seika Murase</span>,
-              </span>
-              <span class="author-block">
-                <span>Anne Elizabeth Clark White</span>,
-              </span>
-              <span class="author-block">
-                <a href="https://cclab.ucsd.edu/" target="_blank">Federico Rossano</a>
-              </span>
+              <span class="author-block"><a href="http://jackterwilliger.com/" target="_blank">Jack Terwilliger</a><sup>1*</sup>,&ensp;</span>
+              <span class="author-block">Julia Di Silvestri<sup>2</sup>,&ensp;</span>
+              <span class="author-block">Seika Murase<sup>1</sup></span>
             </div>
-
             <div class="is-size-5 publication-authors">
-              <span class="author-block">University of California, San Diego<br></span>
+              <span class="author-block">Anne Elizabeth Clark White<sup>3</sup>,&ensp;</span>
+              <span class="author-block"><a href="https://cclab.ucsd.edu/" target="_blank">Federico Rossano</a><sup>1</sup></span>
             </div>
-
+            <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+              <span class="author-block"><sup>1</sup>Dept. of Cognitive Science, UC San Diego&ensp;</span>
+              <span class="author-block"><sup>2</sup>Dept. of Biology, UC San Diego&ensp;</span>
+              <span class="author-block"><sup>3</sup>Herbert Wertheim School of Public Health &amp; Human Longevity Science, UC San Diego</span>
+            </div>
+            <div class="is-size-7 publication-authors" style="margin-top: 0.25rem;">
+              <span><sup>*</sup>Corresponding author: <a href="mailto:jterwilliger@ucsd.edu">jterwilliger@ucsd.edu</a></span>
+            </div>
             <div class="column has-text-centered">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="https://github.com/jackft/iw" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
+                  <a href="../../index.html" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-arrow-left"></i></span>
+                    <span>Main Page</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2607.20876" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/jackft/iw" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
                 </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3">Trajectory Explorable</h2>
         <div id="app"></div>
         <script src="index.js"></script>
-        <h2 class="subtitle has-text-centered">
-          <b>Explorable 1</b> | Interactive exploration of experiment 2 trajectory data from 2023-12-01.
-        </h2>
+        <p class="subtitle has-text-centered" style="margin-top: 0.5rem;">
+          Interactive exploration of experiment 2 trajectory data from 2023-12-08.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 </body>
 </html>
